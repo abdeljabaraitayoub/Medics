@@ -17,11 +17,15 @@ class HomeController extends Controller
 
         $this->render('index', ['journals' => $journals]);
     }
-    
+
     public function user()
     {
-        
+
         $this->render('user');
+    }
+    public function login()
+    {
+        // $this->render('/admin/index');
     }
     public function insert()
     {

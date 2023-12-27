@@ -2,6 +2,10 @@
 
 namespace App;
 
+session_start();
+
+use Symfony\Component\VarDumper\VarDumper;
+
 class Router
 {
     protected $routes = [];
@@ -10,6 +14,7 @@ class Router
     {
 
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
+        // dump($this->routes);
     }
 
     public function get($route, $controller, $action)
