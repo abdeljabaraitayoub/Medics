@@ -1,5 +1,6 @@
 <?php
 
+// use App\Models\Database;
 use App\Controllers\HomeController;
 use App\Controllers\Admin;
 use App\Controllers\Ad;
