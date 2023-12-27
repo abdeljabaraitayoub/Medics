@@ -17,12 +17,11 @@ class DatabaseModel
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
-
     // Method to run queries
-    public function Query($query, $params = [])
+    public function query($query)
     {
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute($params);
+        $stmt->execute();
         return $stmt;
     }
 }
