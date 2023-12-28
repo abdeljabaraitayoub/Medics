@@ -1,15 +1,22 @@
 <?php
-require_once  '../../config/config.php';
-class DatabaseModel
+
+namespace App\Models;
+
+require_once  __DIR__ . '/../../config/config.php';
+
+use PDO;
+use PDOException;
+
+class Database
 {
+    private static $instance;
     private $pdo;
 
-    public function __construct()
+    private function __construct()
     {
         $dsn = DSN;
         $username = DB_USERNAME;
         $password = DB_PASSWORD;
-
         try {
             $this->pdo = new PDO($dsn, $username, $password);
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -18,11 +25,18 @@ class DatabaseModel
         }
     }
 
+    public static function getInstance()
+    {
+        if (!self::$instance) {
+            self::$instance = new Database();
+        }
+        return self::$instance;
+    }
     // Method to run queries
-    public function Query($query, $params = [])
+    public function query($query)
     {
         $stmt = $this->pdo->prepare($query);
-        $stmt->execute($params);
+        $stmt->execute();
         return $stmt;
     }
 }

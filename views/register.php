@@ -34,17 +34,21 @@
                     </div>
                     <div class="x_content">
                         <form method="post" action="">
-
-
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                    <input type="text" name="email" class="form-control has-feedback-left" placeholder="Username">
+                                    <input type="text" name="username" class="form-control has-feedback-left" placeholder="Username">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                    <input type="text" name="password" class="form-control has-feedback-left" placeholder="*************">
+                                    <input type="email" name="email" class="form-control has-feedback-left" placeholder="Email">
+                                    <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
+                                </div>
+                            </div>
+                            <div class="item form-group">
+                                <div class="col-md-12 col-sm-12  form-group has-feedback">
+                                    <input type="password" name="password" class="form-control has-feedback-left" placeholder="Password">
                                     <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -52,13 +56,10 @@
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12">
                                     <center>
-                                        <button type="submit" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Login now</button>
-                                        <!-- <button type="submit" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Login </button> -->
+                                        <button type="submit" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Register</button>
                                     </center>
                                 </div>
                             </div>
-                            <span style="color:red;"></span>
-                            <div class="signup-link">Not a member? <a href="/register">Signup now</a></div>
                         </form>
                     </div>
                 </div>
