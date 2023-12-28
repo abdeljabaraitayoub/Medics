@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+// use App\Models\Database;
 use App\Controllers\HomeController;
 use App\Controllers\Admin;
 use App\Controllers\auth;
