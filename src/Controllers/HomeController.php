@@ -3,21 +3,32 @@
 namespace App\Controllers;
 
 use App\Controller;
-use App\Models\Journal;
+use App\Models\medicine;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        $journals = [
-            new Journal('My Third Journal Entry', '2023'),
-            new Journal('My Second Journal Entry', '2022'),
-            new Journal('My Second Journal', '2021')
+        // $journals = [
+        //     new Journal('My Third Journal Entry', '2023'),
+        //     new Journal('My Second Journal Entry', '2022'),
+        //     new Journal('My Second Journal', '2021')
+        // ];
+
+        // $this->render('index', ['journals' => $journals]);
+    }
+    public function medicine()
+    {
+        $medicine = [
+            new medicine('My Third Journal Entry', '2023'),
+            new medicine('My Second Journal Entry', '2022'),
+            new medicine('My Second Journal', '2021')
         ];
 
-        $this->render('index', ['journals' => $journals]);
+        $this->render('medicine', ['medicine' => $medicine]);
     }
-
+    
+        
     public function user()
     {
 
