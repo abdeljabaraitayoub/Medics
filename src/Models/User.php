@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\database;
+use App\Models\Database;
 use PDO;
 
 class User
@@ -10,9 +10,8 @@ class User
     public $db;
     public function __construct()
     {
-        $this->db = database::getInstance();
+        $this->db = Database::getInstance();
     }
-
     public function login($email, $password)
     {
         $query = "select * from users where email = '$email' ";
