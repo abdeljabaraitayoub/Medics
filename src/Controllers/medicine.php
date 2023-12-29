@@ -11,5 +11,9 @@ class medicine extends Controller
     {
         $this->render('admin/medicine');
     }
+    public function add_medicine()
+    {
+        $this->render('admin/add-medicine');
+    }
     //hna dir dok les function dyol l admin
 }

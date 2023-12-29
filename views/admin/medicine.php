@@ -27,7 +27,7 @@
                   <div class="x_title">
                     <h2>List of Medicines</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                    <a href="add-medicine.php" class="btn btn-sm btn-info text-white"><i class="fa fa-plus"></i> Add Medicine</a>
+                    <a href="add-medicine" class="btn btn-sm btn-info text-white"><i class="fa fa-plus"></i> Add Medicine</a>
                     </ul>
                     <div class="clearfix"></div>
                   </div>
