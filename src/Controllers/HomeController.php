@@ -9,13 +9,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $journals = [
-            new Journal('My Third Journal Entry', '2023'),
-            new Journal('My Second Journal Entry', '2022'),
-            new Journal('My Second Journal', '2021')
-        ];
+       
 
-        $this->render('index', ['journals' => $journals]);
+        $this->render('index',);
     }
 
     public function user()
