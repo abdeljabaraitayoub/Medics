@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 28, 2023 at 02:40 PM
+-- Generation Time: Dec 29, 2023 at 09:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -56,17 +56,16 @@ CREATE TABLE `users` (
   `username` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `role` enum('admin','user','cachier','') DEFAULT 'user'
+  `is_admin` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'user', 'user', '$2y$10$vxTRGzSWYw95AmvpRQqS7OCqiuFVAejiMtj3jw9NdM3WkdbM0ePxq', 'user'),
-(2, 'admin', 'admin', '$2y$10$ZfQUVxW5JOroCtz2ICh56O0ftzegr5FAACThaRLygXST9GQ2pRT5W', 'admin'),
-(3, 'cachier', 'cachier', '$2y$10$gqijucCiiZk/qGLyo69zmOiM4bAwCHMrEScLSXtVOR7LbtJUl3EyC', 'cachier');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
+(1, 'user', 'user', '$2y$10$vxTRGzSWYw95AmvpRQqS7OCqiuFVAejiMtj3jw9NdM3WkdbM0ePxq', NULL),
+(2, 'admin', 'admin', '$2y$10$ZfQUVxW5JOroCtz2ICh56O0ftzegr5FAACThaRLygXST9GQ2pRT5W', b'1');
 
 -- --------------------------------------------------------
 
