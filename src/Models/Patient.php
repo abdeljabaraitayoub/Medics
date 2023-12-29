@@ -6,9 +6,9 @@ use App\Models\User;
 
 class Patient extends User
 {
-    public function __construct($name, $email, $password)
+    public function __construct()
     {
-       
+
     }
     //hna dir dok les function dyol l patient
 }
