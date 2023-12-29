@@ -51,4 +51,12 @@ class User
         header('location:/');
         return $result;
     }
+    public function getAllUsers()
+    {
+        $query = "SELECT * FROM users";
+        $stmt = $this->db->query($query);
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        return $users;
+    }
+
 }

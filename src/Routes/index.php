@@ -4,9 +4,10 @@ session_start();
 // use App\Models\Database;
 use App\Controllers\HomeController;
 use App\Controllers\Admin;
+use App\Controllers\UserController;
+use App\Controllers\VenteController;
 use App\Controllers\auth;
 use App\Controllers\rapport;
-// use App\Controllers\Ad;
 use App\Router;
 
 $router = new Router();
@@ -19,6 +20,11 @@ $router->post('/register', auth::class, 'register');
 $router->get('/stock', rapport::class, 'stock');
 
 $router->get('/admin', Admin::class, 'index');
+$router->get('/sales', VenteController::class, 'index');
+$router->get('/user', UserController::class, 'index');
+$router->get('/add', VenteController::class, 'addOnLigne');
+$router->post('/add', VenteController::class, 'creerVenteEnMagasin');
+$router->get('/delete', VenteController::class, 'deleteVente');
 
 
 $router->dispatch();

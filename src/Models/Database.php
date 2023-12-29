@@ -39,4 +39,8 @@ class Database
         $stmt->execute();
         return $stmt;
     }
+    public function prepare($query)
+    {
+        return $this->pdo->prepare($query);
+    }
 }

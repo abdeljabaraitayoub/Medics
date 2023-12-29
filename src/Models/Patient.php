@@ -8,6 +8,7 @@ class Patient extends User
 {
     public function __construct()
     {
+
     }
     //hna dir dok les function dyol l patient
 }
