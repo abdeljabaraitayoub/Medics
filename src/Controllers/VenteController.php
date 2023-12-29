@@ -35,5 +35,10 @@ class VenteController extends Controller
         $ventemodel->delete();
     }
 
+    public function editVente(){
+        $ventemodel=new Vente();
+        $ventemodel->editVenteInMagasine();
+    }
+
 
 }

@@ -26,9 +26,13 @@ class Vente
 
     public function add()
     {
+        if (isset($_SESSION["id"])) {
+            $idPatient=$_SESSION["id"];
+        }
+       
         if (isset($_GET['id'])) {
             $idMedicament = $_GET['id'];
-            $req = "INSERT INTO vente (id_patient, id_medicament, type) VALUES (1, $idMedicament, 'online')";
+            $req = "INSERT INTO vente (id_patient, id_medicament, type) VALUES ($idPatient, $idMedicament, 'online')";
             $res = $this->db->query($req);
             if ($res) {
                 $this->decrementerQuantiteMedicament($idMedicament);
@@ -68,6 +72,21 @@ class Vente
                 header("Location: /sales");
             }
         }
+    }
+
+    public function editVenteInMagasine(){
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['patient_id'], $_POST['drug_id'])) {
+            $patientId = $_POST['patient_id'];
+            $drugId = $_POST['drug_id'];
+            $req = "UPDATE vente set id_patient=$patientId, id_medicament=$drugId type='local'";
+            $stmt = $this->db->query($req);
+
+            if ($stmt) {
+                $this->decrementerQuantiteMedicament($drugId);
+                header("Location:/sales");
+            }
+        }
+
     }
     
     
