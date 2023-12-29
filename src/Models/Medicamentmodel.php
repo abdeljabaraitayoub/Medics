@@ -12,9 +12,9 @@ class Medicamentmodel
     {
         $this->db = Database::getInstance();
     }
-    public function medicament()
+    public function getAllDrugs()
     {
-        $query = "SELECT * FROM medicament";
+        $query = "SELECT * FROM medicament where visibility=1";
         $stmt = $this->db->query($query);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
         return $results;

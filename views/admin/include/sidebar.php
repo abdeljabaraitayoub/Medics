@@ -24,7 +24,7 @@
                 <li><a href="supplier.php"><i class="fa fa-truck"></i> Supplier</a></li>
                 <li><a href="cashier.php"><i class="fa fa-user"></i> Cashier</a></li>
                 <li><a href="medicine.php"><i class="fa fa-medkit"></i> Medicine</a></li>
-                <li><a href="sales.php"><i class="fa fa-desktop"></i> Sales</a></li>
+                <li><a href="/sales"><i class="fa fa-desktop"></i> Sales</a></li>
                 <li><a href="company.php"><i class="fa fa-building-o"></i> Company</a></li>
                 <li><a href="report.php"><i class="fa fa-bar-chart"></i> Report</a></li>
                 </ul>

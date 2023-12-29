@@ -14,7 +14,6 @@ class Admin extends Controller
     public function index()
     {
         $admin = new Adminmodel();
-        dump($admin->users());
         $this->render('admin/index');
     }
 
