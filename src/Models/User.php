@@ -22,15 +22,13 @@ class User
         if ($row[0]["email"] && password_verify($password, $row[0]["password"])) {
 
             $_SESSION["id"] = $row[0]["id"];
-            $_SESSION["role"] = $row[0]["role"];
+            $_SESSION["role"] = $row[0]["is_admin"];
             // dump($_SESSION);
             // dump($_SESSION);
-            if ($row[0]["role"] == "user") {
+            if ($row[0]["is_admin"] == 0) {
                 header('location:/home');
-            } elseif ($row[0]["role"] == "admin") {
+            } elseif ($row[0]["is_admin"] == 1) {
                 header('location:/admin');
-            } elseif ($row[0]["role"] == "cachier") {
-                header('location:/cashier');
             } else {
                 header('location:/login');
             }
