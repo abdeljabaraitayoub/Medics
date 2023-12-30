@@ -32,5 +32,10 @@ class auth extends Controller
         $user = new User();
         $user->register($username, $password, $email);
     }
+    public function logout()
+    {
+        $user = new User();
+        $user->logout();
+    }
     //hna dir dok les function dyol l admin
 }

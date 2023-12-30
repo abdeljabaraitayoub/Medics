@@ -39,7 +39,8 @@ class User
 
     public function logout(): void
     {
-        // Perform logout logic here
+        session_destroy();
+        header('location:/login');
     }
 
     public function register($fullname, $password, $email)
@@ -55,8 +56,7 @@ class User
     {
         $query = "SELECT * FROM users";
         $stmt = $this->db->query($query);
-        $users = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
-
 }
