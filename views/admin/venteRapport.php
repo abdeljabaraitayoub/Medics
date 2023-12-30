@@ -17,6 +17,7 @@
     }
 
     table {
+      margin-top: 40px;
       width: 100%;
       border-collapse: collapse;
     }
@@ -41,6 +42,11 @@
       /* Adjust as necessary */
     }
 
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+
     .footer {
       text-align: center;
       margin-top: 20px;
@@ -53,34 +59,38 @@
 <body>
   <div class="header-logo">
     <?php
-    $baseurl = "https://i.ibb.co";
+    // $baseurl = "https://i.ibb.co";
     //echo '<img src="' . $baseurl . 'tB3YyZ8/DALL-E-2023-12-27-10-43-06-A-professional-and-centered-logo-for-a-company-named-Medics-The-logo-is-p.png">';
 
     ?>
     <!-- <img src="https://i.ibb.co/tB3YyZ8/DALL-E-2023-12-27-10-43-06-A-professional-and-centered-logo-for-a-company-named-Medics-The-logo-is-p.png"> -->
     <!-- <img src="/public/build/images/logo.png"> -->
     <!-- <img src="https://i.ibb.co/tB3YyZ8/DALL-E-2023-12-27-10-43-06-A-professional-and-centered-logo-for-a-company-named-Medics-The-logo-is-p.png" border="0"> -->
-    <!-- <img src="https://i.ibb.co/tB3YyZ8/DALL-E-2023-12-27-10-43-06-A-professional-and-centered-logo-for-a-company-named-Medics-The-logo-is-p.png" border="0"> -->
   </div>
 
   <div class="table-container">
+    <h1>rapport de vente</h1>
+
     <table>
       <thead>
         <tr>
-          <th>id</th>
-          <th>name</th>
+          <!-- <th>id</th> -->
+          <th>medicament</th>
+          <th>patient</th>
           <th>price</th>
-          <th>stock In</th>
+          <th>type</th>
+          <th>date</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($data as $item) :; ?>
           <tr>
 
-            <td><?php echo $item['id']; ?></td>
             <td><?php echo $item['name']; ?></td>
+            <td><?php echo $item['username']; ?></td>
             <td><?php echo $item['prix']; ?></td>
-            <td><?php echo $item['quantite']; ?></td>
+            <td><?php echo $item['type']; ?></td>
+            <td><?php echo $item['date']; ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

@@ -15,7 +15,7 @@ class rapport extends Controller
     {
 
         // dump($_POST);
-        define("DOMPDF_ENABLE_REMOTE", true);
+        // define("DOMPDF_ENABLE_REMOTE", true);
         // $dompdf = new Dompdf();
         $dompdf = new Dompdf();
         $options = $dompdf->getOptions();
@@ -26,13 +26,44 @@ class rapport extends Controller
         // dump($user->stock());
 
 
-        dd(get_loaded_extensions());
+        // dd(get_loaded_extensions());
 
 
-        $image = file_get_contents("./build/images/logo.png");
-        $encrypted = base64_encode($image);
+        // $image = file_get_contents("./build/images/logo.png");
+        // $encrypted = base64_encode($image);
 
-        $htmlContent = $this->renderpdf('/admin/stockRapport', ['stock' => $user->stock(), 'encrypted' => $encrypted]);
+        $htmlContent = $this->renderpdf('/admin/stockRapport', $user->stock());
+        // dump($htmlContent);
+        $dompdf->loadHtml($htmlContent);
+
+        $dompdf->setPaper('', 'landscape');
+
+        $dompdf->render();
+
+        $dompdf->stream("stock_report.pdf", array("Attachment" => false)); // Use "true" for download or "false" for preview
+    }
+    public function vente()
+    {
+
+        // dump($_POST);
+        // define("DOMPDF_ENABLE_REMOTE", true);
+        // $dompdf = new Dompdf();
+        $dompdf = new Dompdf();
+        $options = $dompdf->getOptions();
+        $options->setDefaultFont('Courier');
+        $dompdf->setOptions($options);
+
+        $user = new rapportmodel();
+        // dump($user->vente());
+
+
+        // dd(get_loaded_extensions());
+
+
+        // $image = file_get_contents("./build/images/logo.png");
+        // $encrypted = base64_encode($image);
+
+        $htmlContent = $this->renderpdf('/admin/venteRapport', $user->vente());
         // dump($htmlContent);
         $dompdf->loadHtml($htmlContent);
 
