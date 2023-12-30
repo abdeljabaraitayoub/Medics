@@ -35,10 +35,25 @@ class VenteController extends Controller
         $ventemodel->delete();
     }
 
-    public function editVente(){
-        $ventemodel=new Vente();
-        $ventemodel->editVenteInMagasine();
+    public function getVente()
+    {
+        $vente = new Medicamentmodel();
+        $drugs = $vente->getAllDrugs();
+        
+        $user = new User();
+        $users = $user->getAllUsers();
+        
+        $venteModel = new Vente();
+        $results = $venteModel->getVenteById();
+    
+        $this->render('admin/editvente', ['results' => $results, 'drugs' => $drugs, 'users' => $users]);
     }
+    public function editVente(){
+        $editvente=new Vente();
+        $editvente->editVenteInMagasine();
+        
+    }
+    
 
 
 }
