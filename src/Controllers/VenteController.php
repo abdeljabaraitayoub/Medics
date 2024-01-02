@@ -53,6 +53,12 @@ class VenteController extends Controller
         $editvente->editVenteInMagasine();
         
     }
+    public function accepterVente(){
+        $editvente=new Vente();
+        $editvente->accepteVenteInMagasine();
+        
+    }
+    
     
 
 
