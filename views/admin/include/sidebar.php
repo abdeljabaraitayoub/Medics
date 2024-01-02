@@ -1,3 +1,4 @@
+
 <div class="container body" >
       <div class="main_container">
         <div class="col-md-3 left_col" >
@@ -22,7 +23,7 @@
                 <li><a href="index.php"><i class="fa fa-tachometer"></i> Dashboard</a></li>
                 <li><a href="category.php"><i class="fa fa-list"></i> Medicine Category</a></li>
                 <li><a href="supplier.php"><i class="fa fa-truck"></i> Supplier</a></li>
-                <li><a href="cashier.php"><i class="fa fa-user"></i> Cashier</a></li>
+                <li><a href="/users"><i class="fa fa-user"></i> Users</a></li>
                 <li><a href="medicine.php"><i class="fa fa-medkit"></i> Medicine</a></li>
                 <li><a href="/sales"><i class="fa fa-desktop"></i> Sales</a></li>
                 <li><a href="company.php"><i class="fa fa-building-o"></i> Company</a></li>
@@ -31,4 +32,5 @@
               </div>
 
             </div>
+
             <!-- /sidebar menu -->
