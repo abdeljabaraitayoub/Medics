@@ -30,10 +30,10 @@ class User
             } elseif ($row[0]["is_admin"] == 1) {
                 header('location:/admin');
             } else {
-                header('location:/login');
+                header('location:/');
             }
         } else {
-            header('location:/login');
+            header('location:/');
         }
     }
 
