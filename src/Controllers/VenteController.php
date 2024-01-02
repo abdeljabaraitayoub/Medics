@@ -12,26 +12,27 @@ class VenteController extends Controller
     public function index()
     {
         $cachier = new Vente();
-        $results= $cachier->ventes();
-        $vente=new Medicamentmodel();
-        $drugs= $vente->getAllDrugs();
-        $user=new User();
-        $users= $user->getAllUsers();
-        $this->render('admin/sales-detail',['results' => $results,'drugs' => $drugs,'users'=>$users]);
+        $results = $cachier->ventes();
+        $vente = new Medicamentmodel();
+        $drugs = $vente->getAllDrugs();
+        $user = new User();
+        $users = $user->getAllUsers();
+        $this->render('admin/sales-detail', ['results' => $results, 'drugs' => $drugs, 'users' => $users]);
     }
     public function addOnLigne()
     {
-        $ventemodel=new Vente();
+        $ventemodel = new Vente();
         $ventemodel->add();
-        
     }
-    public function creerVenteEnMagasin() {
-        $ventemagazine=new Vente();
+    public function creerVenteEnMagasin()
+    {
+        $ventemagazine = new Vente();
         $ventemagazine->addventeMagasine();
     }
 
-    public function deleteVente(){
-        $ventemodel=new Vente();
+    public function deleteVente()
+    {
+        $ventemodel = new Vente();
         $ventemodel->delete();
     }
 
@@ -39,21 +40,18 @@ class VenteController extends Controller
     {
         $vente = new Medicamentmodel();
         $drugs = $vente->getAllDrugs();
-        
+
         $user = new User();
         $users = $user->getAllUsers();
-        
+
         $venteModel = new Vente();
         $results = $venteModel->getVenteById();
-    
+
         $this->render('admin/editvente', ['results' => $results, 'drugs' => $drugs, 'users' => $users]);
     }
-    public function editVente(){
-        $editvente=new Vente();
+    public function editVente()
+    {
+        $editvente = new Vente();
         $editvente->editVenteInMagasine();
-        
     }
-    
-
-
 }

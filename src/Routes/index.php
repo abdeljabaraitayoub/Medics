@@ -21,6 +21,7 @@ $router->post('/register', auth::class, 'register');
 //rapports
 $router->get('/stock', rapport::class, 'stock');
 $router->get('/vente', rapport::class, 'vente');
+$router->get('/bon', rapport::class, 'bon');
 
 $router->get('/admin', Admin::class, 'index');
 $router->get('/sales', VenteController::class, 'index');
