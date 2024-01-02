@@ -13,8 +13,10 @@ use App\Router;
 $router = new Router();
 //login and register
 $router->get('/', auth::class, 'getlogin');
+$router->get('/login', auth::class, 'getlogin');
 $router->post('/', auth::class, 'login');
 $router->get('/register', auth::class, 'getregister');
+$router->get('/logout', auth::class, 'logout');
 $router->post('/register', auth::class, 'register');
 //rapports
 $router->get('/stock', rapport::class, 'stock');
