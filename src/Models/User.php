@@ -37,11 +37,6 @@ class User
         }
     }
 
-    public function logout(): void
-    {
-        session_destroy();
-        header('location:/login');
-    }
 
     public function register($fullname, $password, $email)
     {
@@ -58,5 +53,22 @@ class User
         $stmt = $this->db->query($query);
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
+    }
+    public function logout(): void
+    {
+        session_destroy();
+        header('location:/');
+    }
+    public function is_logged()
+    {
+        if (!isset($_SESSION["id"])) {
+            header('location:/');
+        }
+    }
+    public function is_admin()
+    {
+        if (isset($_SESSION["role"]) == 1) {
+            return true;
+        }
     }
 }
