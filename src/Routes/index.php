@@ -26,6 +26,10 @@ $router->get('/user', UserController::class, 'index');
 $router->get('/add', VenteController::class, 'addOnLigne');
 $router->post('/add', VenteController::class, 'creerVenteEnMagasin');
 $router->get('/delete', VenteController::class, 'deleteVente');
+$router->get('/edit', VenteController::class, 'getVente');
+$router->post('/editVente', VenteController::class, 'editVente');
+
+
 
 
 $router->dispatch();

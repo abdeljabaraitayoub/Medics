@@ -49,7 +49,7 @@
                       <td><?php echo $sale['name']; ?></td>
                       <td><?php echo $sale['prix']; ?> dh</td>
                       <td>
-                        <a href="/edit" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
+                        <a href="/edit?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
                         <a href="/delete?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
                       </td>
                     </tr>
