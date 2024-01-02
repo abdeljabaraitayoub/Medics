@@ -1,8 +1,13 @@
 <?php
+namespace App\Models;
+use PDO;
+use PDOException;
+use FontLib\Table\Type\name;
+
 require_once  '../../config/config.php';
 class DatabaseModel
 {
-    private $pdo;
+    public $pdo;
 
     public function __construct()
     {
@@ -16,6 +21,10 @@ class DatabaseModel
         } catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }
+
+
+
+        
     }
 
     // Method to run queries
