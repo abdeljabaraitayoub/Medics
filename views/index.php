@@ -33,7 +33,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form method="post" action="">
+                        <form method="post" action="/">
 
 
                             <div class="item form-group">
