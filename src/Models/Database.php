@@ -14,6 +14,8 @@ class Database
 
     private function __construct()
     {
+        // dump(DSN);
+
         $dsn = DSN;
         $username = DB_USERNAME;
         $password = DB_PASSWORD;
