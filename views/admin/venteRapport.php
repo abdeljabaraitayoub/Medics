@@ -69,25 +69,28 @@
   </div>
 
   <div class="table-container">
-    <h1>rapport de stock</h1>
+    <h1>rapport de vente</h1>
 
     <table>
       <thead>
         <tr>
-          <th>id</th>
-          <th>name</th>
+          <!-- <th>id</th> -->
+          <th>medicament</th>
+          <th>patient</th>
           <th>price</th>
-          <th>stock In</th>
+          <th>type</th>
+          <th>date</th>
         </tr>
       </thead>
       <tbody>
         <?php foreach ($data as $item) :; ?>
           <tr>
 
-            <td><?php echo $item['id']; ?></td>
             <td><?php echo $item['name']; ?></td>
+            <td><?php echo $item['username']; ?></td>
             <td><?php echo $item['prix']; ?></td>
-            <td><?php echo $item['quantite']; ?></td>
+            <td><?php echo $item['type']; ?></td>
+            <td><?php echo $item['date']; ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>

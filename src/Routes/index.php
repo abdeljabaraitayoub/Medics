@@ -13,11 +13,14 @@ use App\Router;
 $router = new Router();
 //login and register
 $router->get('/', auth::class, 'getlogin');
+$router->get('/login', auth::class, 'getlogin');
 $router->post('/', auth::class, 'login');
 $router->get('/register', auth::class, 'getregister');
+$router->get('/logout', auth::class, 'logout');
 $router->post('/register', auth::class, 'register');
 //rapports
 $router->get('/stock', rapport::class, 'stock');
+$router->get('/vente', rapport::class, 'vente');
 
 $router->get('/admin', Admin::class, 'index');
 $router->get('/sales', VenteController::class, 'index');
@@ -25,9 +28,12 @@ $router->get('/user', UserController::class, 'index');
 $router->get('/add', VenteController::class, 'addOnLigne');
 $router->post('/add', VenteController::class, 'creerVenteEnMagasin');
 $router->get('/delete', VenteController::class, 'deleteVente');
+
+$router->get('/edit', VenteController::class, 'editVente');
+$router->get('/users', UserController::class, 'index2');
+
 $router->get('/edit', VenteController::class, 'getVente');
 $router->post('/editVente', VenteController::class, 'editVente');
-
 
 
 

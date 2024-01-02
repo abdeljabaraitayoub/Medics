@@ -2,10 +2,10 @@
 
 namespace App;
 
-
+use App\Controller;
 use Symfony\Component\VarDumper\VarDumper;
 
-class Router
+class Router extends Controller
 {
     protected $routes = [];
 
@@ -38,7 +38,8 @@ class Router
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("No route found for URI: $uri");
+            $this->render('/404');
+            // throw new \Exception("No route found for URI: $uri");
         }
     }
 }
