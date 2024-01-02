@@ -18,6 +18,7 @@ $router->get('/register', auth::class, 'getregister');
 $router->post('/register', auth::class, 'register');
 //rapports
 $router->get('/stock', rapport::class, 'stock');
+$router->get('/vente', rapport::class, 'vente');
 
 $router->get('/admin', Admin::class, 'index');
 $router->get('/sales', VenteController::class, 'index');
@@ -25,8 +26,13 @@ $router->get('/user', UserController::class, 'index');
 $router->get('/add', VenteController::class, 'addOnLigne');
 $router->post('/add', VenteController::class, 'creerVenteEnMagasin');
 $router->get('/delete', VenteController::class, 'deleteVente');
+
 $router->get('/edit', VenteController::class, 'editVente');
 $router->get('/users', UserController::class, 'index2');
+
+$router->get('/edit', VenteController::class, 'getVente');
+$router->post('/editVente', VenteController::class, 'editVente');
+
 
 
 $router->dispatch();

@@ -22,4 +22,12 @@ class rapportmodel
         // dump($row);
         return $row;
     }
+    public function vente()
+    {
+        $query = "SELECT * FROM `vente` INNER JOIN `medicament` ON vente.id_medicament = medicament.id JOIN users on vente.id_patient=users.id";
+        $stmt = $this->db->query($query);
+        $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        // dump($row);
+        return $row;
+    }
 }
