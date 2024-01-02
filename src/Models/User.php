@@ -26,7 +26,7 @@ class User
             // dump($_SESSION);
             // dump($_SESSION);
             if ($row[0]["is_admin"] == 0) {
-                header('location:/home');
+                header('location:/user');
             } elseif ($row[0]["is_admin"] == 1) {
                 header('location:/admin');
             } else {

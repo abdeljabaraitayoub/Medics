@@ -4,7 +4,7 @@ namespace App\Models;
 
 use PDO;
 
-class Vente 
+class Vente
 {
     public $db;
 
@@ -20,15 +20,19 @@ class Vente
         JOIN medicament ON medicament.id = vente.id_medicament 
         WHERE visibility = 1";
         $stmt = $this->db->query($query);
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
     }
 
     public function add()
     {
+        if (isset($_SESSION["id"])) {
+            $idPatient = $_SESSION["id"];
+        }
+
         if (isset($_GET['id'])) {
             $idMedicament = $_GET['id'];
-            $req = "INSERT INTO vente (id_patient, id_medicament, type) VALUES (1, $idMedicament, 'online')";
+            $req = "INSERT INTO vente (id_patient, id_medicament, type) VALUES ($idPatient, $idMedicament, 'online')";
             $res = $this->db->query($req);
             if ($res) {
                 $this->decrementerQuantiteMedicament($idMedicament);
@@ -59,9 +63,10 @@ class Vente
         $stmt->execute([$medicamentId]);
     }
 
-    public function delete(){
+    public function delete()
+    {
         if (isset($_GET["id"])) {
-            $idvente= $_GET["id"];
+            $idvente = $_GET["id"];
             $req = "delete from vente where vente.id=$idvente";
             $res = $this->db->query($req);
             if ($res) {
@@ -69,6 +74,35 @@ class Vente
             }
         }
     }
+
+    public function editVenteInMagasine()
+    {
+        
+        if (isset($_POST['patient_id'], $_POST['drug_id']) && isset($_POST["id"])) {
+            $patientId = $_POST['patient_id'];
+            $drugId = $_POST['drug_id'];
+            $idvente = $_POST["id"];
+            $req = "UPDATE vente SET id_patient = ?, id_medicament = ?, type = 'local' WHERE id = ?";
+            $stmt = $this->db->prepare($req);
+    
+            $stmt->execute([$patientId, $drugId, $idvente]);
+    
+            if ($stmt) {
+                $this->decrementerQuantiteMedicament($drugId);
+                header("Location:/sales");
+            }
+        } 
+    }
     
     
+    public function getVenteById()
+    {
+        if (isset($_GET["id"])) {
+            $idvente = $_GET["id"];
+            $req = "SELECT * from vente where id=$idvente";
+            $res = $this->db->query($req);
+            $results = $res->fetchAll(PDO::FETCH_ASSOC);
+            return $results;
+        }
+    }
 }
