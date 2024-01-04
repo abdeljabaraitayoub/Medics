@@ -12,9 +12,10 @@ use App\Router;
 
 $router = new Router();
 //login and register
+// $router->addRoute('/', auth::class, 'getlogin', 'GET');
 $router->get('/', auth::class, 'getlogin');
-$router->get('/login', auth::class, 'getlogin');
 $router->post('/', auth::class, 'login');
+$router->get('/login', auth::class, 'getlogin');
 $router->get('/register', auth::class, 'getregister');
 $router->get('/logout', auth::class, 'logout');
 $router->post('/register', auth::class, 'register');
@@ -22,6 +23,8 @@ $router->post('/register', auth::class, 'register');
 $router->get('/stock', rapport::class, 'stock');
 $router->get('/vente', rapport::class, 'vente');
 $router->get('/bon', rapport::class, 'bon');
+
+$router->get('/search', UserController::class, 'search');
 
 $router->get('/admin', Admin::class, 'index');
 $router->get('/sales', VenteController::class, 'index');

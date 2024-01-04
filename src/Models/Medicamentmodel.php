@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
+
 use App\Models\Database;
 use PDO;
 // use Symfony\Component\VarDumper\VarDumper;
 
-class Medicamentmodel 
+class Medicamentmodel
 {
     public $db;
     public function __construct()
@@ -16,8 +17,14 @@ class Medicamentmodel
     {
         $query = "SELECT * FROM medicament where visibility=1";
         $stmt = $this->db->query($query);
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
     }
-    
+    public function search($search)
+    {
+        $query = "SELECT * FROM medicament where visibility=1 and name like '%$search%'";
+        $stmt = $this->db->query($query);
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
+    }
 }

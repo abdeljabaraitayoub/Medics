@@ -9,11 +9,13 @@ class Router extends Controller
 {
     protected $routes = [];
 
+
     private function addRoute($route, $controller, $action, $method)
     {
 
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
         // dump($this->routes);
+        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
     }
 
     public function get($route, $controller, $action)

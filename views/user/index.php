@@ -25,7 +25,7 @@
         <div class="container">
           <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
           <form action="#" method="post">
-            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+            <input type="text" class="form-control" id="search" placeholder="Search keyword and hit enter...">
           </form>
         </div>
       </div>
@@ -76,6 +76,8 @@
         </div>
       </div>
     </div>
+
+
 
 
     <div class="owl-carousel owl-single px-0">
@@ -160,20 +162,8 @@
             <h2>helo Pharmacy <strong class="text-primary">Products</strong></h2>
           </div>
         </div>
-        <div class="produit" style="display:flex ;gap:20px;">
-        <?php foreach ($results as $medicament): ?>
-        <div>
-              <div class="text-center item mb-2 item-v2">
-                <span class="onsale">Sale</span>
-                <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
-                <h3 class="text-dark"><a href="shop-single.html"><?php echo $medicament['name']; ?></a></h3>
-                <p><?php echo $medicament['description']; ?></p>
-                <p class="price"><?php echo $medicament['prix']; ?> DH</p>
-                <a href="add?id=<?php echo $medicament['id']; ?>"><button type="button" class="btn mb-3" style="background-color: #75b239; color: #ffffff;">buy</button></a>
-
-              </div>
-        </div>
-        <?php endforeach; ?>
+        <div class="produit" id="container" style="display:flex ;gap:20px;">
+          //here we gonna put the products.
         </div>
       </div>
     </div>
@@ -331,6 +321,26 @@
 
   <script src="js/main.js"></script>
 
+  <script>
+    const search = document.getElementById('search');
+    const continer = document.getElementsByClassName('container');
+    fetchserch();
+    search.addEventListener("keyup", function() {
+      fetchserch();
+    })
+
+
+
+    function fetchserch() {
+      console.log(search.value);
+      fetch(`/search?search=${search.value}`).then(res => {
+        return res.text();
+      }).then(data => {
+        console.log(data);
+        container.innerHTML = data;
+      })
+    }
+  </script>
 </body>
 
 </html>
