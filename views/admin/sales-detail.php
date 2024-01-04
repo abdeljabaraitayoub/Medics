@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'include/header.php';?>
+<?php include 'include/header.php'; ?>
 
-  <body class="nav-md">
-            <?php include 'include/sidebar.php';?>
-            <?php include 'include/menufooter.php';?>
-          </div>
-        </div>
+<body class="nav-md">
+  <?php include 'include/sidebar.php'; ?>
+  <?php include 'include/menufooter.php'; ?>
+  </div>
+  </div>
 
-        <?php include 'include/topnav.php';?>
+  <?php include 'include/topnav.php'; ?>
 
   <!-- page content -->
   <div class="right_col" role="main">
@@ -27,6 +27,8 @@
             <div class="x_title">
               <h2><strong>SLS-101-21</strong> <small class="text-success">Nov 5, 2021</small></h2>
               <ul class="nav navbar-right panel_toolbox">
+                <a href="/stock" class="btn btn-sm btn-dark text-white">Stock PDF</a>
+                <a href="/vente" class="btn btn-sm btn-dark text-white">Sales PDF</a>
                 <a href="#addEmployeeModal" class="btn btn-sm btn-info text-white" data-toggle="modal"><i class="fa fa-plus"></i> Add Sales</a>
               </ul>
               <div class="clearfix"></div>
@@ -49,13 +51,16 @@
                       <td><?php echo $sale['name']; ?></td>
                       <td><?php echo $sale['prix']; ?> dh</td>
                       <td>
+                        <a href="/accepter?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-primary text-white"><i class="fa fa-edit"></i> Accepter</a>
                         <a href="/edit?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
                         <a href="/delete?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
+
                       </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
               </table>
+
             </div>
           </div>
         </div>

@@ -38,6 +38,7 @@ $router->get('/users', UserController::class, 'index2');
 
 $router->get('/edit', VenteController::class, 'getVente');
 $router->post('/editVente', VenteController::class, 'editVente');
+$router->get('/accepter', VenteController::class, 'accepterVente');
 
 
 
