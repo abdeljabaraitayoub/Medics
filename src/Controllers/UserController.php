@@ -14,20 +14,7 @@ class UserController extends Controller
         $medicamentModel = new Medicamentmodel();
         $results = $medicamentModel->getAllDrugs();
         // dump($medicamentModel->medicament());
-        $user = new auth();
-        if (!isset($_SESSION["id"])) {
-            header('location:/');
-        } else {
-            $this->render('user/index', ['results' => $results]);
-        }
-    }
-    public function search()
-    {
-        $search = $_GET['search'];
-        $medicamentModel = new Medicamentmodel();
-        $results = $medicamentModel->search($search);
-        // dump($medicamentModel->medicament());
-        $this->render('user/medecin', ['results' => $results]);
+        $this->render('user/index', ['results' => $results]);
     }
     public function index2()
     {
@@ -36,5 +23,25 @@ class UserController extends Controller
         $users = $user->getAllUsers();
         // dump($users);
         $this->render('admin/users', ['users' => $users]);
+    }
+
+    public function addUsers()
+    {
+        $user = new User();
+        $user->addUser();
+    }
+
+    public function deleteUsers()
+    {
+        $user = new User();
+        $user->deleteUser();
+    }
+
+    public function editUsers()
+    {
+        $user = new User();
+        $user->editUser();
+        // $use->getUser();
+        $this->render('admin/edituser');
     }
 }
