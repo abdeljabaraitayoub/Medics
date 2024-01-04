@@ -37,8 +37,6 @@
                   <tr>
                     <th>Patient name</th>
                     <th>Email</th>
-                    <th>Phone</th>
-                    <th>CIN</th>
                   </tr>
                 </thead>
 
