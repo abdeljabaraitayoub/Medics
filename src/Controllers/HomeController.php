@@ -16,7 +16,6 @@ class HomeController extends Controller
 
     public function user()
     {
-
         $this->render('user');
     }
     public function insert()

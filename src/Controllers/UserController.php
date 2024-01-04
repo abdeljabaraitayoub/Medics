@@ -44,4 +44,12 @@ class UserController extends Controller
         // $use->getUser();
         $this->render('admin/edituser');
     }
+    public function search()
+    {
+        $search = $_GET['search'];
+        $medicamentModel = new Medicamentmodel();
+        $results = $medicamentModel->search($search);
+        // dump($medicamentModel->medicament());
+        $this->render('user/medecin', ['results' => $results]);
+    }
 }
