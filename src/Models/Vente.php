@@ -18,7 +18,7 @@ class Vente
         $query = "SELECT medicament.name,medicament.prix,users.username,vente.id FROM vente 
         JOIN users ON vente.id_patient = users.id 
         JOIN medicament ON medicament.id = vente.id_medicament 
-        WHERE visibility = 1";
+        WHERE visibility = 1 and visibility_vente=1";
         $stmt = $this->db->query($query);
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $results;
@@ -106,4 +106,16 @@ class Vente
             return $results;
         }
     }
+
+    public function accepteVenteInMagasine()
+    {
+        if (isset($_GET["id"])) {
+            $idvente = $_GET["id"];
+            $req = "UPDATE  vente set visibility_vente=0 where vente.id=$idvente";
+            $res = $this->db->query($req);
+            if ($res) {
+                header("Location: /sales");
+            }
+    }
+}
 }

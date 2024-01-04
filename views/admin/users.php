@@ -36,21 +36,18 @@
                 <thead>
                   <tr>
                     <th>Patient name</th>
-                    <th>drug name</th>
-                    <th>Price</th>
-                    <th>Action</th>
+                    <th>Email</th>
                   </tr>
                 </thead>
 
                 <tbody>
-                  <?php foreach ($users as $sale) : ?>
+                  <?php foreach ($users as $user) : ?>
                     <tr>
-                      <td><?php echo $sale['username']; ?></td>
-                      <td><?php echo $sale['email']; ?></td>
-                      <td><?php echo $sale['role']; ?></td>
+                      <td><?php echo $user['username']; ?></td>
+                      <td><?php echo $user['email']; ?></td>
                       <td>
-                        <a href="/edit?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
-                        <a href="/delete?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
+                        <a href="/edituser?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
+                        <a href="/delete?id=<?php echo $user['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
                       </td>
                     </tr>
                   <?php endforeach; ?>
@@ -67,7 +64,7 @@
   <div id="addEmployeeModal" class="modal">
     <div class="modal-dialog modal-sm" role="document">
       <div class="modal-content">
-        <form id="employeeForm" method="post" action="/add">
+        <form id="employeeForm" method="post" action="/addUser">
           <div class="modal-header">
             <h4 class="modal-title">Add user</h4>
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -77,7 +74,7 @@
               <label>Fullname</label>
                 <div class="item form-group">
                   <div>
-                    <input type="text" class="form-control " >
+                    <input type="text" name="Fullname" class="form-control " >
                     <span class="form-control-feedback left" aria-hidden="true"></span>
                   </div>
                 </div>
@@ -86,7 +83,7 @@
               <label>CIN</label>
                 <div class="item form-group">
                   <div class="">
-                    <input type="text" class="form-control ">
+                    <input type="text" name="CIN" class="form-control ">
                     <span class="form-control-feedback left" aria-hidden="true"></span>
                   </div>
                 </div>
@@ -95,7 +92,16 @@
               <label>Phone</label>
                 <div class="item form-group">
                   <div >
-                    <input type="text" class="form-control" >
+                    <input type="text" name="phone" class="form-control" >
+                    <span class="form-control-feedback left" aria-hidden="true"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+                <div class="item form-group">
+                  <div >
+                    <input type="text" name="email" class="form-control" >
                     <span class="form-control-feedback left" aria-hidden="true"></span>
                   </div>
                 </div>

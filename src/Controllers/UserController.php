@@ -24,4 +24,24 @@ class UserController extends Controller
         // dump($users);
         $this->render('admin/users', ['users' => $users]);
     }
+
+    public function addUsers()
+    {
+        $user = new User();
+        $user->addUser();
+    }
+
+    public function deleteUsers()
+    {
+        $user = new User();
+        $user->deleteUser();
+    }
+
+    public function editUsers()
+    {
+        $user = new User();
+        $user->editUser();
+        // $use->getUser();
+        $this->render('admin/edituser');
+    }
 }
