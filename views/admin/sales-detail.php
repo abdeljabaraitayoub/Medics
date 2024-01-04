@@ -27,8 +27,8 @@
             <div class="x_title">
               <h2><strong>SLS-101-21</strong> <small class="text-success">Nov 5, 2021</small></h2>
               <ul class="nav navbar-right panel_toolbox">
-                <a href="" class="btn btn-sm btn-dark text-white">Stock PDF</a>
-                <a href="" class="btn btn-sm btn-dark text-white">Sales PDF</a>
+                <a href="/stock" class="btn btn-sm btn-dark text-white">Stock PDF</a>
+                <a href="/vente" class="btn btn-sm btn-dark text-white">Sales PDF</a>
                 <a href="#addEmployeeModal" class="btn btn-sm btn-info text-white" data-toggle="modal"><i class="fa fa-plus"></i> Add Sales</a>
               </ul>
               <div class="clearfix"></div>

@@ -36,7 +36,8 @@ class Vente
             $res = $this->db->query($req);
             if ($res) {
                 $this->decrementerQuantiteMedicament($idMedicament);
-                header("Location:/user");
+
+                header("Location:/bon?id=$idMedicament");
             }
         }
     }
@@ -77,24 +78,24 @@ class Vente
 
     public function editVenteInMagasine()
     {
-        
+
         if (isset($_POST['patient_id'], $_POST['drug_id']) && isset($_POST["id"])) {
             $patientId = $_POST['patient_id'];
             $drugId = $_POST['drug_id'];
             $idvente = $_POST["id"];
             $req = "UPDATE vente SET id_patient = ?, id_medicament = ?, type = 'local' WHERE id = ?";
             $stmt = $this->db->prepare($req);
-    
+
             $stmt->execute([$patientId, $drugId, $idvente]);
-    
+
             if ($stmt) {
                 $this->decrementerQuantiteMedicament($drugId);
                 header("Location:/sales");
             }
-        } 
+        }
     }
-    
-    
+
+
     public function getVenteById()
     {
         if (isset($_GET["id"])) {

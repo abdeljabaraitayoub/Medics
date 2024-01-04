@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 02, 2024 at 10:03 AM
+-- Generation Time: Jan 02, 2024 at 10:38 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -80,20 +80,19 @@ CREATE TABLE `vente` (
   `id_patient` int(11) NOT NULL,
   `id_medicament` int(11) NOT NULL,
   `date` date NOT NULL DEFAULT current_timestamp(),
-  `type` enum('local','online') NOT NULL,
-  `visibility` bit(1) DEFAULT b'1'
+  `type` enum('local','online') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `vente`
 --
 
-INSERT INTO `vente` (`id`, `id_patient`, `id_medicament`, `date`, `type`, `visibility`) VALUES
-(1, 1, 1, '2023-12-27', 'local', b'1'),
-(2, 1, 2, '2023-12-28', 'online', b'1'),
-(3, 1, 3, '2023-12-29', 'local', b'1'),
-(4, 5, 1, '2023-12-30', 'local', b'1'),
-(6, 1, 3, '2024-01-02', 'online', b'1');
+INSERT INTO `vente` (`id`, `id_patient`, `id_medicament`, `date`, `type`) VALUES
+(1, 1, 1, '2023-12-27', 'local'),
+(2, 1, 2, '2023-12-28', 'online'),
+(3, 1, 3, '2023-12-29', 'local'),
+(4, 5, 1, '2023-12-30', 'local'),
+(6, 1, 3, '2024-01-02', 'online');
 
 --
 -- Indexes for dumped tables

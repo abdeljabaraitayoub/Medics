@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\Controller;
 use App\Models\Vente;
-use App\Models\user;
+use App\Models\User;
 use App\Models\Medicamentmodel;
 
 class UserController extends Controller
@@ -16,13 +16,12 @@ class UserController extends Controller
         // dump($medicamentModel->medicament());
         $this->render('user/index', ['results' => $results]);
     }
-        public function index2()
+    public function index2()
     {
-        $user=new User();
-        $users= $user->getAllUsers();
-        $this->render('admin/users',['users'=>$users]);
+        // dump($_SESSION);
+        $user = new User();
+        $users = $user->getAllUsers();
+        // dump($users);
+        $this->render('admin/users', ['users' => $users]);
     }
-
-   
 }
-
