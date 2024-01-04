@@ -6,6 +6,7 @@ use App\Controllers\HomeController;
 use App\Controllers\Admin;
 use App\Controllers\UserController;
 use App\Controllers\VenteController;
+use App\Controllers\MedController;
 use App\Controllers\auth;
 use App\Controllers\rapport;
 use App\Router;
@@ -36,6 +37,12 @@ $router->get('/users', UserController::class, 'index2');
 $router->get('/edit', VenteController::class, 'getVente');
 $router->post('/editVente', VenteController::class, 'editVente');
 
+$router->get('/medicine', MedController::class, 'ShowMed');
+$router->get('/editMed', MedController::class, 'getMedEDit');
+$router->get('/deleteMed', MedController::class, 'deleteMed');
+$router->post('/add-medicine', MedController::class, 'creerMedEnMagasin');
+
+$router->post('/editMedDetails', MedController::class, 'editMed');
 
 
 $router->dispatch();
