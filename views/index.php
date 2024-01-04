@@ -33,18 +33,18 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form method="post" action="">
 
 
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" placeholder="Username">
+                                    <input type="email" name="email" class="form-control has-feedback-left" placeholder="Email">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                    <input type="text" class="form-control has-feedback-left" placeholder="*************">
+                                    <input type="password" name="password" class="form-control has-feedback-left" placeholder="*************">
                                     <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>
@@ -52,12 +52,13 @@
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12">
                                     <center>
-                                        <a href="admin" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Login as Admin</a>
-                                        <a href="cashier" class="btn" style="background-color: rgb(121,146,168);color: rgb(11, 52, 61);">Login as Cashier</a>
+                                        <button type="submit" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Login now</button>
+                                        <!-- <button type="submit" class="btn" style="background-color: rgb(22, 104, 122);color: rgb(192, 202, 211);">Login </button> -->
                                     </center>
                                 </div>
                             </div>
-
+                            <span style="color:red;"></span>
+                            <div class="signup-link">Not a member? <a href="/register">Signup now</a></div>
                         </form>
                     </div>
                 </div>

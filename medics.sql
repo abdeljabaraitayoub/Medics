@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2023 at 11:10 AM
+-- Generation Time: Dec 29, 2023 at 09:58 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -56,17 +56,16 @@ CREATE TABLE `users` (
   `username` varchar(40) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `role` enum('admin','user','cachier','') DEFAULT NULL
+  `is_admin` bit(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'user', 'user', 'user', 'user'),
-(2, 'admin', 'admin', 'admin', 'admin'),
-(3, 'cahier', 'cachier', 'cachier', 'cachier');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `is_admin`) VALUES
+(1, 'user', 'user', '$2y$10$vxTRGzSWYw95AmvpRQqS7OCqiuFVAejiMtj3jw9NdM3WkdbM0ePxq', NULL),
+(2, 'admin', 'admin', '$2y$10$ZfQUVxW5JOroCtz2ICh56O0ftzegr5FAACThaRLygXST9GQ2pRT5W', b'1');
 
 -- --------------------------------------------------------
 
@@ -112,7 +111,9 @@ ALTER TABLE `users`
 -- Indexes for table `vente`
 --
 ALTER TABLE `vente`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_vente_id_medicament` (`id_medicament`),
+  ADD KEY `fk_vente_id_patient` (`id_patient`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -128,13 +129,24 @@ ALTER TABLE `medicament`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `vente`
 --
 ALTER TABLE `vente`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `vente`
+--
+ALTER TABLE `vente`
+  ADD CONSTRAINT `fk_vente_id_medicament` FOREIGN KEY (`id_medicament`) REFERENCES `medicament` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_vente_id_patient` FOREIGN KEY (`id_patient`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
