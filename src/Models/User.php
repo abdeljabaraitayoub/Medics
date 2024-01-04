@@ -72,4 +72,47 @@ class User implements AuthInterface
         $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $users;
     }
+
+    public function addUser()
+    {
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["Fullname"])) {
+        $username = $_POST['Fullname'];
+        // echo $username;
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $CIN = $_POST['CIN'];
+        $query = "INSERT INTO users  (username,email,phone,CIN) VALUES ('$username', '$email', '$phone', '$CIN')";
+        $result=$this->db->query($query);
+        // dump($result );
+        if($result){
+            header ("location:/users");
+        }else{
+            echo "Mission Failed";
+        }
+        }
+    }
+
+    public function deleteUser()
+    {
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $requete = "DELETE FROM users WHERE id=$id";
+            $result = $this->db->query($requete);
+            if ($result) {
+                header("Location: /users");
+            }
+        }
+    }
+
+
+    public function editUser()
+    {
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+            $requet = "SELECT * FROM users";
+            $stmt = $this->db->query($requet);
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }
+    }
 }
