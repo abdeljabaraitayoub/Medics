@@ -2,19 +2,20 @@
 
 namespace App;
 
-session_start();
-
+use App\Controller;
 use Symfony\Component\VarDumper\VarDumper;
 
-class Router
+class Router extends Controller
 {
     protected $routes = [];
+
 
     private function addRoute($route, $controller, $action, $method)
     {
 
         $this->routes[$method][$route] = ['controller' => $controller, 'action' => $action];
         // dump($this->routes);
+        // echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>';
     }
 
     public function get($route, $controller, $action)
@@ -31,7 +32,7 @@ class Router
     {
         $uri = strtok($_SERVER['REQUEST_URI'], '?');
         $method =  $_SERVER['REQUEST_METHOD'];
-
+        // dump(array_key_exists($uri, $this->routes[$method]));
         if (array_key_exists($uri, $this->routes[$method])) {
             $controller = $this->routes[$method][$uri]['controller'];
             $action = $this->routes[$method][$uri]['action'];
@@ -39,7 +40,8 @@ class Router
             $controller = new $controller();
             $controller->$action();
         } else {
-            throw new \Exception("No route found for URI: $uri");
+            $this->render('/404');
+            // throw new \Exception("No route found for URI: $uri");
         }
     }
 }
