@@ -32,7 +32,7 @@ $router->get('/sales', VenteController::class, 'index');
 $router->get('/user', UserController::class, 'index');
 $router->get('/add', VenteController::class, 'addOnLigne');
 $router->post('/add', VenteController::class, 'creerVenteEnMagasin');
-$router->get('/delete', VenteController::class, 'deleteVente');
+$router->get('/deletevente', VenteController::class, 'deleteVente');
 
 $router->get('/edit', VenteController::class, 'editVente');
 $router->get('/users', UserController::class, 'index2');
@@ -47,6 +47,7 @@ $router->get('/deleteMed', MedController::class, 'deleteMed');
 $router->post('/add-medicine', MedController::class, 'creerMedEnMagasin');
 
 $router->post('/editMedDetails', MedController::class, 'editMed');
-
+$router->post('/addUser', UserController::class, 'addUsers');
+$router->get('/delete', UserController::class, 'deleteUsers');
 
 $router->dispatch();

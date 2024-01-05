@@ -39,54 +39,22 @@
                                     <h4 class="modal-title">Edit Sale</h4>
                                 </div>
                                 <div class="modal-body">
-                                    <select class="form-control" name="id">
-                                        <?php foreach ($meds as $user) :
-                                            $selected = ($user['id'] == $results[0]['id_patient']) ? 'selected' : '';
-                                        ?>
-                                            <option value="<?php echo $user['id']; ?>" <?php echo $selected; ?>>
-                                                <?php echo $user['id']; ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
+
                                     <div class="form-group">
                                         <label>Le nom du médicament : </label>
-                                        <select class="form-control" name="MedName">
-                                            <?php foreach ($meds as $med) :
-                                                $selected = ($med['id'] == $results[0]['id_patient']) ? 'selected' : '';
-                                            ?>
-                                                <option value="<?php echo $med['name']; ?>" <?php echo $selected; ?>>
-                                                    <?php echo $med['name']; ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <input class="form-control" name="MedName" type="text">
                                     </div>
 
                                     <div class="form-group">
                                         <label>La description: </label>
-                                        <select class="form-control" name="MedDesc">
-                                            <?php foreach ($meds as $med) :
-                                                $selected = ($med['id'] == $results[0]['id_medicament']) ? 'selected' : '';
-                                            ?>
-                                                <option value="<?php echo $med['prix']; ?>" <?php echo $selected; ?>>
-                                                    <?php echo $med['description']; ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <input class="form-control" name="MedDesc" type="text">
+                                        </input>
                                     </div>
                                     <div class="form-group">
                                         <label>Le prix : </label>
-                                        <select class="form-control" name="MedPrix">
-                                            <?php foreach ($meds as $drug) :
-                                                $selected = ($drug['prix'] == $results[0]['prix']) ? 'selected' : '';
-                                            ?>
-                                                <option value="<?php echo $drug['description']; ?>" <?php echo $selected; ?>>
-                                                    <?php echo $drug['prix']; ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <input class="form-control" name="MedPrix" type="text">
                                     </div>
 
-                                    <!-- <input type="hidden" name="id" value="<?php echo $results[0]['id']; ?>"> -->
                                 </div>
                                 <div class="modal-footer">
                                     <a href="/medicine"><input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel"></a>

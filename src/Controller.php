@@ -19,7 +19,6 @@ class Controller
 
         include "../views/$view.php";
         // dump(include "../views/$view.php");
-
         $htmlContent = ob_get_clean();
 
         return $htmlContent;

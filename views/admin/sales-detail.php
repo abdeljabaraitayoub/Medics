@@ -53,7 +53,7 @@
                       <td>
                         <a href="/accepter?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-primary text-white"><i class="fa fa-edit"></i> Accepter</a>
                         <a href="/edit?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i> edit</a>
-                        <a href="/delete?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
+                        <a href="/deletevente?id=<?php echo $sale['id']; ?>" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i> delete</a>
 
                       </td>
                     </tr>

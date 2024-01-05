@@ -20,24 +20,24 @@ class MedController extends Controller
     {
         $med = new Med();
         $meds = $med->meds();
-        
-    
         $this->render('admin/edit-med', ['meds' => $meds]);
     }
-    
-    public function deleteMed(){
-        $ventemodel=new Med();
+
+    public function deleteMed()
+    {
+        $ventemodel = new Med();
         $ventemodel->deleteMed();
     }
 
-    public function editMed(){
-        $editMed=new Med();
+    public function editMed()
+    {
+        $editMed = new Med();
         $editMed->editMedInMagasine();
         $this->ShowMed();
-
     }
-    public function creerMedEnMagasin() {
-        $ventemagazine=new Med();
+    public function creerMedEnMagasin()
+    {
+        $ventemagazine = new Med();
         $ventemagazine->addMedMagasine();
     }
 }

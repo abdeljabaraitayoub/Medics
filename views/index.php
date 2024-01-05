@@ -38,7 +38,7 @@
 
                             <div class="item form-group">
                                 <div class="col-md-12 col-sm-12  form-group has-feedback">
-                                    <input type="email" name="email" class="form-control has-feedback-left" placeholder="Email">
+                                    <input type="" name="email" class="form-control has-feedback-left" placeholder="Email">
                                     <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                                 </div>
                             </div>

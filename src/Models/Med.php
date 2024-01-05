@@ -22,26 +22,25 @@ class Med
     }
     public function editMedInMagasine()
     {
-        
+
         if (isset($_POST['MedPrix'])) {
             // die("here");
-            $idMedicament = $_POST['id'];
+            $idMedicament = $_GET['id'];
             $prix = $_POST['MedPrix'];
             $desc = $_POST["MedDesc"];
             $medName = $_POST["MedName"];
-            
-            
+
+
             $req = "UPDATE medicament SET name = ?, prix = ?, description = ? WHERE id = ?";
             $stmt = $this->db->prepare($req);
-    
+
             $stmt->execute([$medName, $desc, $prix, $idMedicament]);
-    
-            
-        } 
+            dump($idMedicament);
+        }
     }
     public function addMedMagasine()
     {
-        
+
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['Med_Desc'])) {
             $MedName = $_POST['Med_Name'];
@@ -128,24 +127,24 @@ class Med
 
     // public function editVenteInMagasine()
     // {
-        
+
     //     if (isset($_POST['patient_id'], $_POST['drug_id']) && isset($_POST["id"])) {
     //         $patientId = $_POST['patient_id'];
     //         $drugId = $_POST['drug_id'];
     //         $idvente = $_POST["id"];
     //         $req = "UPDATE vente SET id_patient = ?, id_medicament = ?, type = 'local' WHERE id = ?";
     //         $stmt = $this->db->prepare($req);
-    
+
     //         $stmt->execute([$patientId, $drugId, $idvente]);
-    
+
     //         if ($stmt) {
     //             $this->decrementerQuantiteMedicament($drugId);
     //             header("Location:/sales");
     //         }
     //     } 
     // }
-    
-    
+
+
     public function getVenteById()
     {
         if (isset($_GET["id"])) {
